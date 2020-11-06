@@ -1,17 +1,17 @@
-# IoT Summit 2020 Hands on Lab: Azure IoT Time Series Insights Preview
+# Digital IoT Airlift 2020 Hands on Lab: Azure Time Series Insights
 
 -----------------------------------------
 ![TSI Logo](https://azure-samples.github.io/azureiotlabs/timeseriesinsights/images/timeseriesinsights.jpg)
 
-Welcome to the lab! Azure IoT Time Series Insights (TSI) Preview is an end-to-end platform-as-a-service (PaaS) offering. You can use TSI to collect, store, analyze, and query data at Internet of Things (IoT) scale.
+Welcome to the Azure Time Series Insights Hands on lab! Azure IoT Time Series Insights (TSI) is an end-to-end platform-as-a-service (PaaS) offering. You can use TSI to ingest, store, contextualize, query and visualize data at industrial scale.
 
 Time Series Insights is designed for ad hoc data exploration and operational analysis. It's an extensible and customized service offering that meets the broad needs of industrial IoT deployments. 
 
 ## Introduction and Outline
 
-You are a consultant for Contoso Wind Farm--a utility company in the Northeast with a diverse energy portfolio. Contoso Wind Farm operates a dozen wind farms, and they have tasked you with creating a cloud storage and analytics solution that includes a user-interface for the operations hub managers. A cloud gateway device has already been configured to ingest data from a handful of wind mills at four of their farms so that you can get started on a proof of concept.
+You are a consultant for Contoso Wind Farm--a utility company in the Northeast with a diverse energy portfolio. Contoso Wind Farm operates a dozen wind farms, and they have tasked you with creating a cloud storage and analytics solution that includes a user-interface for the operations hub managers. A cloud gateway device has already been configured to ingest data from a handful of wind mills at four of their farms so that you can get started!
 
-You will go through the following steps:
+You will go through the following steps to deploy your solution using TSI:
 
 1. [Get to Know You Survey](step-001-survey/)
 2. [Event Hub Set-Up and Device Simulation](step-002-hub-and-data-sim/)
