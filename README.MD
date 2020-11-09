@@ -13,13 +13,13 @@ You are a consultant for Contoso Wind Farm--a utility company in the Northeast w
 
 You will go through the following steps to deploy your solution using TSI:
 
-1. [Get to Know You Survey](step-001-survey/)
-2. [Event Hub Set-Up and Device Simulation](step-002-hub-and-data-sim/)
-3. [TSI Environment Set-Up](step-003-tsi-env-creation/)
-4. [TSI Explorer Overview](step-004-explorer-intro/)
-5. [Time Series Model (TSM) Creation](step-005-tsm-creation/)
-6. [Query and Chart Time Series](step-006-charting)
-7. [Links to Additional Resource](step--007-resource-links/)
+1. [Event Hub Set-Up and Device Simulation](step-01-hub-and-data-sim/)
+1. [TSI Environment Set-Up](step-02-tsi-env-creation/)
+1. [TSI Explorer Overview](step-03-explorer-intro/)
+1. [Time Series Model (TSM) Creation](step-04-tsm-creation/)
+1. [Query and Chart Time Series](step-05-charting/)
+1. [Query using APIs](step-06-postman-apis/)
+2. [Links to Additional Resource](step--007-resource-links/)
 
 ## Legal Notices
 
