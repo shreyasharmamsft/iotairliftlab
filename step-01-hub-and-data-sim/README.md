@@ -1,79 +1,89 @@
-## Step 2: Event Hub Set-Up and Device Simulation
+## Step 1: Event Hub Set-Up and Device Simulation
 
 Azure IoT Time Series Insights preview supports both IoT Hub and Event Hubs as event sources. In this lab we'll be setting up an Event Hub and leverage a SPA client to generate and push wind mill sensor data to the hub.
 
-### Create a resource group
+### 1. Create a resource group
 
-* Create a new Azure resource group (RG) to collect and manage all the application resources we will be provisioning and using during the lab and for ease of resource clean-up post lab. If you prefer, you can also re-use an existing RG.
+1. Create a new Azure resource group (RG) to collect and manage all the application resources we will be provisioning and using during the lab and for ease of resource clean-up post lab. If you prefer, you can also re-use an existing RG and skip this step. 
 \
-![Resource Group](../assets/01_Create_Resource_Group.png)
+![Resource Group](../assets/step1_01_Create_Resource_Group.png)
 
-* Click on **+ Add** button  
+2. Click on **+ Add** button  
 \
-![Add Resource Group](../assets/02_Create_Resource_Group_Create.png)
+![Add Resource Group](../assets/step1_02_Create_Resource_Group_Create.png)
 
-* Enter **Resource group name**,  Select **subscription** and **region**. Click on **Review + Create**, and after reviewing, click on **Create**.
+3. Enter a **Resource group name** and select a **subscription** and **region**. 
+4. Click on **Review + Create** to double check your entries. Once you are done reviewing, click on **Create**.
+\
+![Create Resource Group Submit](../assets/step1_03_Create_Resource_Group_Submit.png)
 
-![Create Resource Group Submit](../assets/03_Create_Resource_Group_Submit.png)
 
-### Create an Event Hubs namespace and an Event Hub
+### 2. Create an Event Hubs namespace and an Event Hub
 
 TSI preview supports both Azure IoT Hub and Events Hubs as event sources. Up to two event sources are permitted per TSI environment. In this lab we will use an Event Hub as our event source.
 
-* On the upper left hand corner of the Azure portal click the tool bar and select Create a resource
+1. Navigate to your resource group and click "Add" to create an Event Hub resource. (You can also click the tool bar on the upper left hand corner of the Azure portal and select "Create a resource".)
+\
+![Create a Resource](../assets/step1_04_Create_Resource.png)
 
-![Create a Resource](../assets/04_Create_Resource.png)
+2. Search the marketplace for "Event Hubs" and click create.
 
-* Search the marketplace for "Event Hubs" and click create
-
-* When you set-up Event Hubs first you create the hub namespace, then you instantiate a hub. Fill out the form with the following parameters:
+3. First you create the hub namespace, then you will instantiate a hub that will receive data. Fill out the form for creating a namespace with the following parameters:
 
 **Parameter**|**Action**
 -----|-----
-Name|Enter a unique name for the Event Hubs Namespace.
-Pricing tier|Select Standard (20 Consumer groups, 1000 Brokered connections).
 Subscription|Select the subscription you're using for the lab.
-Resource group|Select the RG you created or re-used from the previous step.
-Location|Select your RG location. Note that as a best practice it's recommended to house your event source and TSI environment in the same location. 
+Resource group|Select the RG you created from the previous step.
+Namespace Name |Enter a unique name for the Event Hubs Namespace.
+Location|Select your RG location. Note that as a best practice it's recommended to house your event source and TSI environment in the same location.
+Pricing tier|Select Standard (20 Consumer groups, 1000 Brokered connections).
 Throughput Units|Enter 4.
+
+![Create a Hub Namespace](../assets/step1_05_Create_Hub_Namespace.png)
+
+4. Under the Features tab, enable auto inflate and set the following parameters: 
+  
+**Parameter**|**Action**
+-----|-----
 Enable Auto-Inflate|Check the checkbox to enable.
 Auto-Inflate Maximum Throughput Units|Slide to 12 units.
 
-![Create a Hub Namespace](../assets/05_Create_Hub_Namespace.png)
+![Create a Hub Namespace](../assets/step1_06_Create_Hub_Namespace_auto_inflate.png)
 
-* Once your deployment is complete, navigate to your Event Hubs Namespace and click on Event Hubs:
 
-![Click Event Hubs](../assets/06_Create_Hub.png)
+5. Once your deployment is complete, navigate to your Event Hubs Namespace and click on Event Hubs:
+\
+![Click Event Hubs](../assets/step1_07_Create_Hub.png)
 
-* Create an Event Hub with a Parition Count of 4.
+6. Create an Event Hub with a Parition Count of 4. Leave all other defaults as is. 
+\
+![Create a Hub](../assets/step1_07_Create_Hub_Partitions.png)
 
-![Create a Hub](../assets/07_Create_Hub.png)
+7. Click on your newly created Event Hub to update its settings.
+\
+![Nav to your event hub settings](../assets/step1_08_Navigate_To_PolicySettings.png)
 
-* Click on your newly created Event Hub to update its access policy settings.
+8. You will need to generate a connection string to enable both sending and reading hub telemetry messages. Creating both a Send and Listen policy follows the principle of least privilege. Click on Shared access policies to create them.
+\
+![Click on Shared access policies](../assets/step1_09_Shared_Policies.png)
 
-![Nav to your hub](../assets/07_Navigate_To_Hub.png)
+9. Create both a Send policy as well as a Listen policy. Here's an example of how to create a send policy:
+\
+![Create Send Policy](../assets/step1_10_Send_Policy.png)
 
-* You will need to generate a connection string to enable both sending and reading hub telemetry messages. Creating both a Send and Listen policy follows the principle of least privilege. Navigate click on Shared access policies:
+10. Click on the newly created Send policy and copy the "Connection string–primary key" to your clipboard. 
+\
+![Client App](../assets/step1_11_windfarm_pusher.png)
 
-![Click on Shared access policies](../assets/08_Shared_Policies.png)
+11.  Open [the TSI Sample Wind Farm Pusher](https://tsiclientsample.azurewebsites.net/windFarmGen.html) in a separate browser window. Paste the connection string into the input field in the TSI Sample Wind Farm Pusher. The default values in the other fields are generic settings - you can edit these, if you'd like to. Please keep this tab open as the simulator will continue to push data until the browser tab is closed.
+\
+![Windfarm Pusher](../assets/step1_11_windfarm_client.png)
 
-* Create both a Send policy as well as a Listen policy
+12.  After clicking start a JSON file will be downloaded. This file has the simulated time series' data model and we will use it in a future step to bulk-edit our time series instances.
 
-![Create Send Policy](../assets/09_Send_Policy.png)
-
-* Click on the newly created Send policy and 
-
-* Copy [this link](https://tsiclientsample.azurewebsites.net/windFarmGen.html) to the TSI Sample Wind Farm Pusher client app and open the link in a separate browser window. Toggle back to the Azure portal, and click on your newly created Send policy. Copy the "Connection string–primary key" to your clipboard. Paste the connection string into the input field in the TSI Sample Wind Farm Pusher. NOTE: When using the Chromium browser with many tabs open there is a slight risk that the ajax calls will be throttled by the browser itself if it has insufficient recources. If you experience a failure message try using a different browser such as Edge to push data.
-
-The simulator will continue to push data until the browser tab is closed.
-
-After clicking start a JSON file is downloaded. If you need to grant the browser permission to download this file do that now and then re-click start. This file has the simulated time series' data model and we will use it in a future step to bulk-provision our time series instances.
-
-![Client App](../assets/11_Wind_Farm_Client.png)
-
-* Navigate back to your Event Hub, the metrics on the overview tab should now show data flowing into the hub:
+13. Navigate back to your Event Hub, the metrics on the overview tab should now show data flowing into the hub:
 
 ![Hub metrics](../assets/10_Hub_Metrics.png)
 
-Continue on to the [next step](../step-003-tsi-env-creation)
+Continue on to the [next step](../step-02-tsi-env-creation)
 
