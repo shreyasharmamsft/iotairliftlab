@@ -85,5 +85,5 @@ Auto-Inflate Maximum Throughput Units|Slide to 12 units.
 
 ![Hub metrics](../assets/step1_12_Hub_Metrics.png)
 
-14. Continue on to the [next step](../step-02-tsi-env-creation)
+14. Continue on to the [next step](../step-02-tsi-env-creation) to create a TSI environment.
 
