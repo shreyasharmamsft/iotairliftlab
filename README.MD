@@ -19,7 +19,8 @@ You will go through the following steps to deploy your solution using TSI:
 1. [Time Series Model (TSM) Creation](step-04-tsm-creation/)
 1. [Query and Chart Time Series](step-05-charting/)
 1. [Query using APIs](step-06-postman-apis/)
-2. [Links to Additional Resource](step--007-resource-links/)
+1. [Customer Query Scenarios Survey](step-07-customer-scenario-survey)
+1. [Links to Additional Resources](step-08-resource-links/)
 
 ## Legal Notices
 
