@@ -1,11 +1,12 @@
 ## Step 7: Additional Resources
 
-This concludes the main portion of the lab. If time allows, you can contine to explore the [API reference documentation](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccess(preview)/query/execute#request-body) or one of the links below to additional resources. 
+This concludes the main portion of the lab. Thank you for participating!
 
-We would love to hear your thoughts and feature requests! There is a comment section at the end of the survey that you can use for feedback on the lab, general thoughts, feature requests, or question. 
+We would love to hear your thoughts and feature requests! Please [fill out the scenarios survey](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwajkpSiwRZDi3eOPqGzzVVUQVk3Ulc2OFhSS1FUNjI0V1JGMzI4QjRBTS4u) to provide any feedback on the product, feature requests, etc.
 
-Lastly, feel free to connect with [Shreya Sharma](https://www.linkedin.com/in/shreya-sharma-2b4306106) and [Lyrana Hughes](https://www.linkedin.com/in/lyrana-hughes-5b2252111/) on LinkedIn.
+Feel free to connect with [Shreya Sharma](https://www.linkedin.com/in/shreya-sharma-2b4306106) on LinkedIn, over email or a message via Teams! 
 
+Links to other TSI Resources:
 * [Azure Time Series Insights Documentation](https://docs.microsoft.com/en-us/azure/time-series-insights/)
-* [Ignite 2019 Theatre Session](https://myignite.techcommunity.microsoft.com/sessions/84341)
-* [Advancing industrial IoT capabilities in Azure Time Series Insights Blog Post](https://azure.microsoft.com/en-us/blog/advancing-industrial-iot-capabilities-in-azure-time-series-insights/)
+* [Leading the next generation of industrial IoT analytics platforms Blog Post](https://azure.microsoft.com/blog/azure-time-series-insights-gen-2-leading-the-next-generation-of-industrial-iot-analytics-solutions/)
+* [IoT Show Deep Dive: Analyzing IoT Data using Time Series Insights](https://www.youtube.com/watch?v=dy2Hv_LVowg&t=2s&ab_channel=MicrosoftDeveloper)
