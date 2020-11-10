@@ -83,7 +83,7 @@ Auto-Inflate Maximum Throughput Units|Slide to 12 units.
 
 13. Navigate back to your Event Hub, the metrics on the overview tab should now show data flowing into the hub:
 
-![Hub metrics](../assets/10_Hub_Metrics.png)
+![Hub metrics](../assets/step1_12_Hub_Metrics.png)
 
 14. Continue on to the [next step](../step-02-tsi-env-creation)
 
