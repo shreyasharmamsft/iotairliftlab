@@ -1,5 +1,9 @@
-## Step 7: Four Question Survey
+## Step 7: Customer Query Scenarios Survey 
 
-This survey is completely optional, but your participation will help us to better our product. We'd like to briefly get to know you and your needs as a cloud platform user. This data will help us ensure that Azure IoT Time Series Insights meets your needs and business priorities.
+This survey is completely optional, but your participation will help us to better our product. As you work closely with some of our users, we'd like to gather your input to understand how our platform is being used and what we can improve. 
 
-[Click here to begin](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRw-RdcMaTpVOuMjcdNJhWyJUODk3SzVSRkRCNVUwV1pWUlFYRjhLWTVHNC4u)
+This data will help us ensure that Azure IoT Time Series Insights meets our customer's needs and business priorities.
+
+This survey should take about 15 minutes to complete. 
+
+[Click here to begin](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwajkpSiwRZDi3eOPqGzzVVUQVk3Ulc2OFhSS1FUNjI0V1JGMzI4QjRBTS4u)
