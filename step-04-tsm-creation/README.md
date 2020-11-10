@@ -32,21 +32,36 @@ In this section, you will add time series model entities to contextualize your I
 -----|-----
 Name|"Value Variable"
 Kind| "Numeric"
-Value| Select from preset. In the drop-down menu select "Value (Double)"
+Value| Select from preset. From the drop-down menu select "Value (Double)".
 Advanced options| We will not be using the advanced variable options, however, you can expand the section to view the options offered, including modifying the aggregation and configuring interpolation or a value filter.
 
 \
 ![04_TSM_Authoring](../assets/step4_04_TSM_Authoring.png)
 
 2. Click "Apply". 
+   
+3. Next we will add another Numeric variable and edit some of the advanced options to allow for interpolation. Click "+ Add variable" and enter the following fields:
 
-3. Next we will add a categorical variable. Categorical variables allow you to set a descriptive label or category to a discrete value. For example, 0 or 1 might be sent in an event payload, but an operations manager may instead prefer to see "On" and "Off" in the explorer. Click "Add" and enter the following fields:
+**Field**|**Value**
+-----|-----
+Name|"Time Weighted Value Variable"
+Kind| "Numeric"
+Value| Select from preset. From the drop-down menu select "Value (Double)".
+Advanced options > Aggregation operation| From the drop-down menu select "TWAVG" to perform a time-weighted average aggregation. 
+Advanced options > Interpolation|Interpolation will be required for this type of aggregation. Select "Linear". Leave all other settings as is. 
+
+\
+![04_TSM_Authoring](../assets/step4_044_TSM_Authoring.png)
+
+4. Click "Apply". 
+   
+5. Next we will add a categorical variable. Categorical variables allow you to set a descriptive label or category to a discrete value. For example, 0 or 1 might be sent in an event payload, but an operations manager may instead prefer to see "On" and "Off" in the explorer.Click "+ Add variable" and enter the following fields:
 
 **Field**|**Value**
 -----|-----
 Name|"Status Variable"
 Kind|"Categorical"
-Value|From the dropdown, select "Status (String)"
+Value|From the drop-down, select "Status (String)"
 Categories| Create a Label called "Machinery Working" and map it to the value "Good". Create another label called "Machinery Not Working" and map it to "Bad". Select colors to represent these values. 
 Default Category| Name your default category "Unknown" and choose a color to represent it. 
 
@@ -54,7 +69,7 @@ Default Category| Name your default category "Unknown" and choose a color to rep
 ![05_TSM_Authoring](../assets/step4_05_TSM_Authoring.png)
 
 
-4. Click Apply and then click Save.
+6. Click Apply and then click Save.
 
 
 ### 3. Update Instances
