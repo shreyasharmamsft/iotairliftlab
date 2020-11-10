@@ -1,4 +1,4 @@
-## Step 5: Create a Time Series Model
+## Step 4: Create a Time Series Model
 
 In this section, you will add time series model entities to contextualize your IoT data. Time Series Model (preview) has 3 components: Types, Hierarchies and Instances.
 
@@ -6,97 +6,88 @@ In this section, you will add time series model entities to contextualize your I
 * Hierarchies allow users to specify the structure of their assets. For example, an organization has buildings and buildings have rooms which contain IoT devices. We will leverage the ability to create multiple hierarchical views to see the Contoso Wind Farm data organized in both a physical and sematic structure.
 * Instances enrich incoming IoT data with device metadata. An instance links to 1 type definition and multiple hierarchy definitions.
 
+### 1. Create hierarchies
+
 1. In the upper left part of the explorer select the Model tab:
+\
+![01_TSM_Authoring](../assets/step4_01_TSM_Authoring.png)
 
-![01_TSM_Authoring](../assets/01_TSM_Authoring.png)
+2. In the Hierarchies section, select “+ Add”. Create a hierarchy named "Wind Farm - Physical" with the following levels: Location > Windmill > Group > Name. It should look like this:
+\
+![02_TSM_Authoring](../assets/step4_02_TSM_Authoring.png)
 
-2. In the Hierarchies section, select “+ Add”.
+3. Click Save. If you don't see the hierarchy listed refresh the page. 
 
-A modal will open. Add the following values:
+4. Repeat the steps above to add another hierarchy named "Wind Farm - Semantic" with the following levels: Group > Name > Location > Windmill. It should look like this:
+\
+![03_TSM_Authoring](../assets/step4_03_TSM_Authoring.png)
 
-Name: Wind Farm - Physical
-Levels:
-Name the first level “Location”.
-Click “+ Add Level” and add another sub-level named "Windill".
-Add two more levels: "Group" and "Name".
+5. Click Save. 
+   
+### 2. Create Variables
 
-![02_TSM_Authoring](../assets/02_TSM_Authoring.png)
+1. Now that there are two hierarchies navigate to the Types section. For the lab we will be adding variables to the default type. Click the pencil icon to open the editor, and select the Variables tab. Click "+ Add variable" and enter the following fields:
 
-3. If you don't see the hierarchy listed refresh the page. 
+**Field**|**Value**
+-----|-----
+Name|"Value Variable"
+Kind| "Numeric"
+Value| Select from preset. In the drop-down menu select "Value (Double)"
+Advanced options| We will not be using the advanced variable options, however, you can expand the section to view the options offered, including modifying the aggregation and configuring interpolation or a value filter.
 
-4. Repeate the steps above to add antoher hierarchy named "Wind Farm - Semantic" with the following levels: 
+\
+![04_TSM_Authoring](../assets/step4_04_TSM_Authoring.png)
 
-Group > Name > Location > Windmill
+2. Click "Apply". 
 
-![Image](../assets/03_TSM_Authoring.png)
+3. Next we will add a categorical variable. Categorical variables allow you to set a descriptive label or category to a discrete value. For example, 0 or 1 might be sent in an event payload, but an operations manager may instead prefer to see "On" and "Off" in the explorer. Click "Add" and enter the following fields:
 
-5. Now that there are two hierarchies navigate to the Types section. For the lab we will be adding variables to the default type. Click the pencil icon to open the editor, and select the Variables tab. Click "+ Add variable" and enter the following fields:
+**Field**|**Value**
+-----|-----
+Name|"Status Variable"
+Kind|"Categorical"
+Value|From the dropdown, select "Status (String)"
+Categories| Create a Label called "Machinery Working" and map it to the value "Good". Create another label called "Machinery Not Working" and map it to "Bad". Select colors to represent these values. 
+Default Category| Name your default category "Unknown" and choose a color to represent it. 
 
-Name: "Value"
-Kind: "Numeric"
-Value: Select from preset
-In the drop-down menu select "Value (Double)"
-
-We will not be using the advanced variable options, however, you can expand the section to view the options offered, including modifying the aggregation and configuring interpolation or a value filter.
-
-Click "Apply"
-
-Next we will add a categorical variable. Categorical variables allow you to set a descriptive label or category to a discrete value. For example, 0 or 1 might be sent in an event payload, but an operations manager may instead prefer to see "On" and "Off" in the explorer. Note that there is an error in the lab for this varaible example--0 and 1 were intended to be in the event payload, but you'll see in the example below that the actual text is sent instead. Given time constraints, please "squint your eyes" to see these numeric values categorized, and this will be fixed for future labs.
-
-Click "Add" and enter the following fields:
-
-Name: "Status"
-Kind: "Categorical"
-Value: Custom
-In the input box enter "$event.[Status].String"
-Kind: String
-
-![Image](../assets/04_TSM_Authoring.png)
+\
+![05_TSM_Authoring](../assets/step4_05_TSM_Authoring.png)
 
 
-Categories:
-Label: Good
-Values: Good
-Color: Select a color
-
-Label: Bad
-Values: Bad
-Color: Select a color
-
-Default category: Unknown
-
-![Image](../assets/05_TSM_Authoring.png)
-
-Click Apply and then click Save.
-
-We will be using the bulk-upload feature to create a time series instance for each of the 111 sensors, assign the default type, and add then to both of the hierarchies. This segment will include some copy and pasting. Open the Instances.json file that was downloaded by the data simulator. If you're using VS Code, you can easily format the JSON: Shft + Alt + F or ctrl + P and type ">Format" then select "Format Document."
-
-Navigate back to the explorer and copy the Type ID of the Default Type:
-
-![Image](../assets/06_TSM_Authoring.png)
-
-In the Instances.json file, find and replace all instances of "tTBD" with the GUID, being sure that the ID is enclosed in just one pair of ""
-
-Next we will copy the two GUIDs of both hierarchies and use another text editor to get them into following format before doing the replace all: "<GUID>", "<GUID>"
+4. Click Apply and then click Save.
 
 
-In the explorer click on the Hierarchies tab and copy both hierarchy IDs and use any editor to insert the comma between the GUIDs. Copy that entire value and replace all instances of "hTBD":
+### 3. Update Instances
 
-![Image](../assets/07_TSM_Authoring.png)
+We will be using the bulk-upload feature to create a time series instance for each of the 111 sensors, assign the default type, and add then to both of the hierarchies. This segment will include some copy and pasting. Please use any text editor of your choice for editing JSON, we recommend VS Code.
 
-Save your updated file and in the explore go to the Instances tab and select Upload JSON:
+1. **Make a copy** of the Instances.json file that was downloaded by the data simulator to edit.
+   
+2. Navigate back to the explorer and copy the Type ID of the Default Type:
+\
+![Image](../assets/step4_06_TSM_Authoring.png)
 
-![Image](../assets/08_TSM_Authoring.png)
+3. In the Instances.json file, find and replace all instances of "tTBD" with the GUID, being sure that the ID is enclosed in just one pair of ""
 
-Choose your Instances.JSON file and click upload:
+4. Next we will copy the two GUIDs of both hierarchies and use another text editor to get them into following format: "GUID", "GUID"
 
-![Image](../assets/09_TSM_Authoring.png)
+5. In the explorer click on the Hierarchies tab and copy both hierarchy IDs and use any editor to insert the comma between the GUIDs. Copy that entire value and replace all instances of "hTBD":
+\
+![Image](../assets/step4_07_TSM_Authoring.png)
 
-Your data is now modeled in both a physical and semantic hierarchy, navigate back to the analyze tab and expand each hierarchy to view the topology:
+6. Save your updated file and in the explore go to the Instances tab and select Upload JSON:
+\
+![Image](../assets/step4_08_TSM_Authoring.png)
 
-![Image](../assets/10_TSM_Authoring.png)
+7. Choose your Instances.JSON file and click upload:
+\
+![Image](../assets/step4_09_TSM_Authoring.png)
 
-Continue to the [next step](../step-006-charting) to chart and query sensor values.
+8. Your data is now modeled in both a physical and semantic hierarchy, navigate back to the analyze tab and expand each hierarchy to view the topology:
+\
+![Image](../assets/step4_10_TSM_Authoring.png)
+
+9. Continue to the [next step](../step-05-charting) to chart and query sensor values.
 
 
 
