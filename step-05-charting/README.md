@@ -62,4 +62,4 @@ To query your data, expand your model, select an instance and click on the insta
 
 11. To try out the Power BI Connector, you must have the desktop version of Power BI installed. If you do, see [here](https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi) for steps on how to use it.
 
-12. Continue to the [next section](../step-06-postman-apis) to query the data using the APIs.
+12. Continue to the [next section](../step-06-postman-apis/README.md) to query the data using the APIs.

@@ -48,5 +48,5 @@ Timestamp property|Enter "Timestamp". This value is used to identify the Timesta
 6. Coming to your TSI explorer, your default view should look similar to the image below:
 ![Explorer Landing](../assets/step2_createTsiEnvironment06.png)
 
-7. Continue on to the [next step](../step-03-explorer-intro) for an overview of the explorer.
+7. Continue on to the [next step](../step-03-explorer-intro/README.md) for an overview of the explorer.
 

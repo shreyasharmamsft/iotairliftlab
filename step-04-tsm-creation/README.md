@@ -102,7 +102,7 @@ We will be using the bulk-upload feature to create a time series instance for ea
 \
 ![Image](../assets/step4_10_TSM_Authoring.png)
 
-9. Continue on to the [next step](../step-05-charting) to chart and query sensor values using the TSI Explorer.
+9. Continue on to the [next step](../step-05-charting/README.md) to chart and query sensor values using the TSI Explorer.
 
 
 
