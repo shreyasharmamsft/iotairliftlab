@@ -1,4 +1,4 @@
-## Step 7: Additional Resources
+## Step 8: Additional Resources
 
 This concludes the main portion of the lab. Thank you for participating!
 
@@ -10,3 +10,5 @@ Links to other TSI Resources:
 * [Azure Time Series Insights Documentation](https://docs.microsoft.com/en-us/azure/time-series-insights/)
 * [Leading the next generation of industrial IoT analytics platforms Blog Post](https://azure.microsoft.com/blog/azure-time-series-insights-gen-2-leading-the-next-generation-of-industrial-iot-analytics-solutions/)
 * [IoT Show Deep Dive: Analyzing IoT Data using Time Series Insights](https://www.youtube.com/watch?v=dy2Hv_LVowg&t=2s&ab_channel=MicrosoftDeveloper)
+
+[Back to start](../README.MD)

@@ -17,4 +17,4 @@ Welcome to the explorer! Some of the key features include:
 
 4. Read more about the [TSI Explorer features](https://docs.microsoft.com/azure/time-series-insights/concepts-ux-panels).
  
-5. Continue on to the [next step](../step-04-tsm-creation) to create a data model.
+5. Continue on to the [next step](../step-04-tsm-creation/README.md) to create a data model.
