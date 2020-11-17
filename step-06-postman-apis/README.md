@@ -7,6 +7,8 @@ Time Series Insights offers [3 query APIs](https://docs.microsoft.com/azure/time
 
 These are used by the Time Series Explorer used in the previous step to chart data. 
 
+Time Series Insights also offers [Model APIs](https://docs.microsoft.com/azure/time-series-insights/concepts-query-overview#time-series-model-query-tsm-q-apis) and [Environment APIs](https://docs.microsoft.com/azure/time-series-insights/concepts-query-overview#environment-apis) that interact with the Time Series Model and TSI Environment, respectively. 
+
 ### 1. Set up Postman
 
 1. If you have not already [installed Postman](https://www.postman.com/downloads/), please do so now. 
