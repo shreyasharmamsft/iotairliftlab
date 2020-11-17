@@ -40,17 +40,72 @@ Client Authentication| Send as basic auth header.
 \
 ![FQDN](../assets/step6_postman_fqdn.png)
 
-7. Enter the following URL into the request URL box: "https://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.env.timeseries.azure.com/timeseries/query?api-version=2020-07-31&storeType=WarmStore". Replace the dummy string with your environment's FQDN. 
+7. Enter the following URL into the request URL box: "https://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.env.timeseries.azure.com/timeseries/query?api-version=2020-07-31&storeType=WarmStore". Replace the dummy string with your environment's FQDN.
 \
 ![Request URL](../assets/step6_postman_requrl.png)
+
+  > [!NOTE]
+  > There is an optional [storeType parameter](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters) defined in the URL. You can use it to define which store (Warm or Cold) your query should run against. If you do not specify the storeType, the query will run against Cold Store.  
 
 8. Under the Body tab, make sure you've selected "raw" and "JSON" as the input. 
 \
 ![Input format](../assets/step6_postman_input.png)
 
-9. We will make a query for Sensor_56. This is the Outdoor Temperature sensor from WM1 in Bristol. 
+9. We will make queries for Sensor_56. This is the Outdoor Temperature sensor from WM1 in Bristol. We will also make queries for the model APIs and the environment APIs.
 \
 ![Sensor 56](../assets/step6_postman_sensor56.png)
+
+### 2. Data Queries
+- [GetEvents](../querysamples/getEvents.md) 
+- 
+
+
+1. You will have to edit the searchspans in the sample queries provided below. You should edit the "to" time in the search span to be today's date and "from" time to be yesterday's date (or any date range in the past for which you have data).
+    
+![Edit Searchspan](../assets/step6_postman_searchspan.png)
+
+2. Copy, edit and send the queries below! If successful, you should see a 200 response code and the results populated. 
+\
+![Execute Query](../assets/step6_postman_execute.png)
+
+
+
+
+12. You learn that your temperature sensor has been sending faulty measurements. Each reading is about 5 degrees off. To view an "edited" version of raw events, run a GetSeries query. Enter the following JSON in the query body. You should edit the "to" time in the search span to be today's date and "from" time to be yesterday's date.
+
+``` JSON
+{
+  "getSeries": {
+    "timeSeriesId": [
+            "Sensor_56"
+        ],
+        "searchSpan": {
+            "from": "2020-11-09T01:50:00.000Z",
+            "to": "2020-11-10T01:55:00.000Z"
+        },
+        "filter": {
+            "tsx": "$event.Value.Double != null"
+        },
+    "inlineVariables": {
+        "offsetTemp": {
+            "kind": "numeric",
+            "value": {
+                "tsx": "$event.Value.Double + 5"
+            },
+            "filter": null,
+            "aggregation": {
+                "tsx": "avg($value)"
+            }
+        }
+    },
+    "projectedVariables": [
+      "offsetTemp"
+    ]
+  }
+}
+``` 
+  > [!NOTE]
+  > There is an aggregation specified in the variables. 
 
 10.  Enter the following JSON in the query body. You should edit the "to" time in the search span to be today's date and "from" time to be yesterday's date. 
 
@@ -66,7 +121,7 @@ Client Authentication| Send as basic auth header.
         ],
         "interval": "PT5M",
         "inlineVariables": {
-            "avg": {
+            "avgTemp": {
                 "kind": "numeric",
                 "value": {
                     "tsx": "$event.Value.Double"
@@ -76,7 +131,7 @@ Client Authentication| Send as basic auth header.
                     "tsx": "avg($value)"
                 }
             },
-            "min": {
+            "minTemp": {
                 "kind": "numeric",
                 "value": {
                     "tsx": "$event.Value.Double"
@@ -86,7 +141,7 @@ Client Authentication| Send as basic auth header.
                     "tsx": "min($value)"
                 }
             },
-            "max": {
+            "maxTemp": {
                 "kind": "numeric",
                 "value": {
                     "tsx": "$event.Value.Double"
@@ -95,25 +150,36 @@ Client Authentication| Send as basic auth header.
                 "aggregation": {
                     "tsx": "max($value)"
                 }
+            }, 
+            "twavgTemp": {
+                "kind": "numeric",
+                "value": {
+                    "tsx": "$event.Value.Double"
+                },
+                "filter": null,
+                "aggregation": {
+                    "tsx": "twavg($value)"
+                },
+                "interpolation": {
+                    "kind": "Step",
+                }
             }
         },
         "projectedVariables": [
-            "avg",
-            "min",
-            "max"
+            "avgTemp",
+            "minTemp",
+            "maxTemp",
+            "twavgTemp"
         ]
     }
 }
 ```
-\
-![Edit Searchspan](../assets/step6_postman_searchspan.png)
 
-11. Send the query! If successful, you should see a 200 response code and the results populated. 
-\
-![Execute Query](../assets/step6_postman_execute.png)
 
 12. Edit the variables values and aggregations to run different queries following [examples](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#examples) and [syntax documentation](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
-13. For information about API limits, see [here](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits).
 
-14. Continue on to section [next step](../step-07-customer-scenario-survey/) to answer the customer query scenarios survey or [see more resources to learn about TSI](../step-08-resource-links/).
+
+For information about API limits, see [here](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits).
+
+Continue on to section [next step](../step-07-customer-scenario-survey/) to answer the customer query scenarios survey or [see more resources to learn about TSI](../step-08-resource-links/).
