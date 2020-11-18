@@ -26,7 +26,7 @@ Grant Type|Authorization Code
 Call back URL|urn:ietf:wg:oauth:2.0:oob 
 Auth URL|https://login.windows.net/microsoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/
 Access Token URL|https://login.microsoftonline.com/microsoft.com/oauth2/token 
-client ID| 1950a258-227b-4e31-a9cf-717495945fc2 
+Client ID| 1950a258-227b-4e31-a9cf-717495945fc2 
 Client Secret| Leave blank.
 Scope| Leave blank.
 State| Leave blank.
@@ -50,7 +50,7 @@ Client Authentication| Send as basic auth header.
 \
 ![Sensor 56](../assets/step6_postman_sensor56.png)
 
-3. You will have to edit the searchspans in the sample queries provided above. You should edit the "to" time in the search span to be today's date and "from" time to be yesterday's date (or any date range in the past for which you have data in your environment).
+3. You will have to edit the searchspans in the sample queries provided below. You should edit the "to" time in the search span to be today's date and "from" time to be yesterday's date (or any date range in the past for which you have data in your environment).
     
 ![Edit Searchspan](../assets/step6_postman_searchspan.png)
 
