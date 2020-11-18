@@ -46,18 +46,15 @@ Client Authentication| Send as basic auth header.
 ![FQDN](../assets/step6_postman_fqdn.png)
 
 
-2. Using the query APIs, we will make queries for Sensor_56. This is the Outdoor Temperature sensor from WM1 in Bristol. We will also make queries against the Time Series Model using the model APIs.
+2. Using the query APIs, we will make queries for Sensor_56 (the Outdoor Temperature sensor from WM1 in Bristol). We will also make queries against the Time Series Model using the model APIs.
 \
 ![Sensor 56](../assets/step6_postman_sensor56.png)
 
-3. You will have to edit the searchspans in the sample queries provided below. You should edit the "to" time in the search span to be today's date and "from" time to be yesterday's date (or any date range in the past for which you have data in your environment).
-    
-![Edit Searchspan](../assets/step6_postman_searchspan.png)
+3. You will have to edit the searchspans in some of the sample queries linked below. You should edit the "to" time in the search span to be today's date and "from" time to be yesterday's date (or any date range in the past for which you have data in your environment).
 
 4. Copy, edit and send the queries below! If successful, you should see a 200 response code and the results populated. 
 \
 ![Execute Query](../assets/step6_postman_execute.png)
-
  
 #### Query APIs
 - [GetEvents](../querysamples/getEvents.md) 
@@ -69,7 +66,6 @@ Client Authentication| Send as basic auth header.
 - [Instances](../querysamples/instances.md)
 - [Hierarchies](../querysamples/hierarchies.md)
 - [Types](../querysamples/types.md)
-
 
 5. For information about API limits, see [here](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits).
 
