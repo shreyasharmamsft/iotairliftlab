@@ -44,7 +44,7 @@ Client Authentication| Send as basic auth header.
 ![FQDN](../assets/step6_postman_fqdn.png)
 
 
-2. Using the query APIs, we will make queries for Sensor_56. This is the Outdoor Temperature sensor from WM1 in Bristol. We will also make queries against the Time Series Model and TSI Environment using the model APIs and the environment APIs.
+2. Using the query APIs, we will make queries for Sensor_56. This is the Outdoor Temperature sensor from WM1 in Bristol. We will also make queries against the Time Series Model using the model APIs.
 \
 ![Sensor 56](../assets/step6_postman_sensor56.png)
 
@@ -56,11 +56,7 @@ Client Authentication| Send as basic auth header.
 \
 ![Execute Query](../assets/step6_postman_execute.png)
 
-#### Environment APIs
-- [GetEnvironment](../querysamples/getenv.md)
-- [Availability](../querysamples/availability.md)
-- [EventSchema](../querysamples/eventschema.md)
-  
+ 
 #### Query APIs
 - [GetEvents](../querysamples/getEvents.md) 
 - [GetSeries](../querysamples/getSeries.md)
