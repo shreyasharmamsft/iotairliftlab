@@ -40,7 +40,7 @@ You learn your temperature sensor is reading faulty values. Each data point sent
 
 ``` JSON
 {
-`    "getSeries": {
+     "getSeries": {
         "timeSeriesId": [
             "Sensor_56"
         ],
