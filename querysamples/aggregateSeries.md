@@ -165,4 +165,4 @@ To map your data to categories, run this AggregateSeries query:
 
 Edit the variables values and aggregations to run different queries following [examples](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#examples) and [syntax documentation](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
-Go [back to steps](../step-06-postman-apis/README.md).
+Go [back to steps](../step-06-postman-apis/README.md#query-apis).
