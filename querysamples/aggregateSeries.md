@@ -14,8 +14,8 @@ To aggregate your raw data to see the avg, min, max, etc. per time interval, run
 {
     "aggregateSeries": {
         "searchSpan": {
-            "from": "2020-11-09T01:50:00.000Z",
-            "to": "2020-11-10T01:55:00.000Z"
+          "from": {{start_time}},
+          "to": {{end_time}}
         },
         "timeSeriesId": [
             "Sensor_56"
@@ -82,8 +82,8 @@ To map your data to categories, run this AggregateSeries query:
 {
   "aggregateSeries": {
     "searchSpan": {
-      "from": "2019-10-10T23:42:00.000Z",
-      "to": "2019-10-10T23:42:20.000Z"
+      "from": {{start_time}},
+      "to": {{end_time}}
     },
     "timeSeriesId": [
       "Sensor_56"
