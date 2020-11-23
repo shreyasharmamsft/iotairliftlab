@@ -71,4 +71,4 @@ You learn your temperature sensor is reading faulty values. Each data point sent
   > [!NOTE]
   > The GetSeries query operates on raw data. The variables are used to specify computation on the raw data. The aggregation and interpolation parameters in the inline variables have no effect in a GetSeries query.  
 
-Go [back to steps](../step-06-postman-apis/README.md).
+Go [back to steps](../step-06-postman-apis/README.md#query-apis).
