@@ -26,7 +26,7 @@ Grant Type|Authorization Code
 Call back URL|urn:ietf:wg:oauth:2.0:oob 
 Auth URL|https://login.windows.net/microsoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/
 Access Token URL|https://login.microsoftonline.com/microsoft.com/oauth2/token 
-Client ID| 1950a258-227b-4e31-a9cf-717495945fc2 
+Client ID| 1950a258-227b-4e31-a9cf-717495945fc2 (previously set up app ID)
 Client Secret| Leave blank.
 Scope| Leave blank.
 State| Leave blank.
