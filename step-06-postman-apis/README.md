@@ -39,23 +39,27 @@ Client Authentication| Send as basic auth header.
 ![Input format](../assets/step6_postman_input.png)
 
 
-### 2. Run sample queries
+### 2. How to Run Sample Queries
 
 1. Get your environment's FQDN value from Azure Portal. It will be a 36 char string with dashes. For some of the query URLs, you will have to replace a dummy string with your environment's FQDN.
 \
 ![FQDN](../assets/step6_postman_fqdn.png)
 
 
-2. Using the query APIs, we will make queries for Sensor_56 (the Outdoor Temperature sensor from WM1 in Bristol). We will also make queries against the Time Series Model using the model APIs.
+2. The samples linked below will query for data from Sensor_56 (the Outdoor Temperature sensor from WM1 in Bristol). We will also make queries against the Time Series Model using the model APIs.
 \
 ![Sensor 56](../assets/step6_postman_sensor56.png)
 
-3. You will have to edit the searchspans in some of the sample queries linked below. You should edit the "to" time in the search span to be today's date and "from" time to be yesterday's date (or any date range in the past for which you have data in your environment).
+3. You will have to edit the searchspans in some of the sample queries. You should edit the "to" time in the search span to be today's date and "from" time to be yesterday's date (or any date range in the past for which you have data in your environment).
 
-4. Copy, edit and send the queries below! If successful, you should see a 200 response code and the results populated. 
+4. Copy, edit and send the queries linked below! If successful, you should see a 200 response code and the results populated. 
 \
 ![Execute Query](../assets/step6_postman_execute.png)
- 
+
+### 3. Sample Queries
+
+1. Click any of the APIs below to see a sample. 
+
 #### Query APIs
 - [GetEvents](../querysamples/getEvents.md) 
 - [GetSeries](../querysamples/getSeries.md)
