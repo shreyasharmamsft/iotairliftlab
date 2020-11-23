@@ -39,4 +39,4 @@ To see the raw data as it's been ingested into your database, run this GetEvents
 ```
 Try adding/removing "Projected Properties" parameter to limit the response set to only a few columns from the database. Add/remove the "take" parameter to limit the number of events you get back from the query. The default value of take is 10,000.
 
-Go [back to steps](../step-06-postman-apis/README.md).
+Go [back to steps](../step-06-postman-apis/README.md#query-apis).
