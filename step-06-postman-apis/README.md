@@ -58,7 +58,7 @@ Client Authentication| Send as basic auth header.
 
 ### 3. Sample Queries
 
-1. Click any of the APIs below to see a sample. 
+Click any of the APIs below to see a sample. 
 
 #### Query APIs
 - [GetEvents](../querysamples/getEvents.md) 
